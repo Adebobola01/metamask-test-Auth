@@ -5,13 +5,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tokenization</title>
-        <script src="./web3.js-browser/build/web3.js"></script>
+        <script
+            src="./node_modules/@metamask/detect-provider/dist/detect-provider.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="./node_modules/web3/dist/web3.min.js"
+            type="text/javascript"
+            defer
+        ></script>
+        <script src="./src/utils.js" type="text/javascript"></script>
         <script src="./src/App.js" type="module" defer></script>
+        <link rel="stylesheet" href="./src/app.css" />
     </head>
     <body>
-        <h1>Bobola's blockchain</h1>
-        <label for="kycAddress">Address:</label>
-        <input type="text" name="kycAddress" id="kycAddress" />
-        <button type="button" class="whitelist--btn">Whitelist</button>
+        <button class="connect--button">Connect</button>
+        <div class="container">
+            <p class="connect--wallet__text">
+                connect your wallet in other to use the App
+            </p>
+
+            <div class="function--container">
+                <h1>Bobola's blockchain</h1>
+                <label for="kycAddress">Address:</label>
+                <input type="text" name="kycAddress" id="kycAddress" />
+                <button type="button" class="whitelist--btn">Whitelist</button>
+            </div>
+        </div>
     </body>
 </html>

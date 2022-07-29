@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(48, 4, 48);
+}
+
+.container {
+    height: 100%;
+}
+
+.connect--wallet__text {
+    color: red;
+    font-size: 2rem;
+}
+
+.function--container {
+    display: none;
+}
+
+.connect--button {
+    border: none;
+    position: relative;
+    left: 0;
+    border-radius: 24px;
+    display: inline-block;
+    color: white;
+    border-bottom: 2rem white;
+    background-color: aquamarine;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+}
