@@ -7,6 +7,7 @@ const userInput = document.querySelector("#kycAddress");
 const whitelistBtn = document.querySelector(".whitelist--btn");
 const connectWalletBtn = document.querySelector(".connect--button");
 const funcContainer = document.querySelector(".function--container");
+const connectText = document.querySelector(".connect--wallet__text");
 
 const state = {
     kycAddress: "0x123...",
@@ -65,7 +66,7 @@ const handleInputChange = (e) => {
 
 const handleKycWhitelisting = async function () {
     await state.kycInstance.methods
-        .kycCompleted(state.kycAddress)
+        .setKycCompleted(state.kycAddress)
         .send({ from: state.userAccount });
 
     console.log(`KYC completed for address: ${state.kycAddress}`);
@@ -107,6 +108,7 @@ connectWalletBtn.addEventListener("click", async () => {
     state.userAccount = state.accounts[0];
     console.log(state.userAccount);
     getContract();
+    connectText.style.display = "none";
     funcContainer.style.display = "block";
 });
 userInput.addEventListener("change", handleInputChange);

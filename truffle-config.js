@@ -4,6 +4,7 @@ const Mnemonic =
 const AccountIndex = 0;
 
 module.exports = {
+    contracts_build_directory: "./build/src/contracts",
     networks: {
         // development: {
         //     host: "127.0.0.1",
