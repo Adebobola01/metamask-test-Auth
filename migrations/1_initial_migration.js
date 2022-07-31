@@ -1,18 +1,21 @@
 var MyToken = artifacts.require("MyToken");
 var MyTokenSale = artifacts.require("MyTokenSale");
-var kycContract = artifacts.require("KycContract");
+var KycContract = artifacts.require("KycContract");
+require("dotenv").config({ path: "../.env" });
 
 module.exports = async function (deployer) {
-    await deployer.deploy(MyToken);
     let addr = await web3.eth.getAccounts();
-    let instance = await MyToken.deployed();
-    await deployer.deploy(kycContract);
+    await deployer.deploy(MyToken, 1000000000000000000000000n);
+    await deployer.deploy(KycContract);
     await deployer.deploy(
         MyTokenSale,
-        10,
+        parseInt(10),
         addr[0],
         MyToken.address,
-        kycContract.address
+        KycContract.address
     );
-    await instance.transfer(MyTokenSale.address, 1000000);
+    let instance = await MyToken.deployed();
+
+    await instance.transfer(MyTokenSale.address, 1000000000000000000000000n);
+    console.log(await instance.balanceOf(MyTokenSale.address));
 };

@@ -1,6 +1,5 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const Mnemonic =
-    "damage snake pole sorry stick noise tomato toy silver congress place step";
+require("dotenv").config({ path: "./.env" });
 const AccountIndex = 0;
 
 module.exports = {
@@ -14,7 +13,7 @@ module.exports = {
         ganache_local: {
             provider: function () {
                 return new HDWalletProvider(
-                    Mnemonic,
+                    process.env.MNEMONIC,
                     "http://127.0.0.1:7545",
                     AccountIndex
                 );

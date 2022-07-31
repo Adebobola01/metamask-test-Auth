@@ -1,5 +1,7 @@
 body {
     background-color: rgb(48, 4, 48);
+    color: red;
+    font-size: 1.5rem;
 }
 
 .container {

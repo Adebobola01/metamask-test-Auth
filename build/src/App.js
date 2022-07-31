@@ -8,6 +8,7 @@ const whitelistBtn = document.querySelector(".whitelist--btn");
 const connectWalletBtn = document.querySelector(".connect--button");
 const funcContainer = document.querySelector(".function--container");
 const connectText = document.querySelector(".connect--wallet__text");
+const buyTokens = document.querySelector(".buy--tokens");
 
 const state = {
     kycAddress: "0x123...",
@@ -55,20 +56,23 @@ const state = {
 
 userInput.value = state.kycAddress;
 
-const handleInputChange = (e) => {
-    const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    state.kycAddress = value;
-    console.log(state);
-};
+// const handleInputChange = (e) => {
+//     const target = e.target;
+//     const value = target.type === "checkbox" ? target.checked : target.value;
+//     state.kycAddress = value;
+//     console.log(state);
+// };
 
 // .send({ from: "0x4eFa9f6E4B1355baBB40e159d0E101358897D4C2" });
 
 const handleKycWhitelisting = async function () {
-    await state.kycInstance.methods
-        .setKycCompleted(state.kycAddress)
-        .send({ from: state.userAccount });
-
+    try {
+        await state.kycInstance.methods
+            .SetKycCompleted(state.kycAddress)
+            .send({ from: state.userAccount });
+    } catch (error) {
+        console.error(error.message);
+    }
     console.log(`KYC completed for address: ${state.kycAddress}`);
     alert(`KYC completed for address: ${state.kycAddress}`);
 };
@@ -78,6 +82,8 @@ const getContract = async () => {
         let web3 = new Web3(Web3.givenProvider);
 
         state.networkId = 5777;
+
+        state.tokenAddress = MyTokenSale.networks[state.networkId].address;
 
         state.myTokenInstance = await new web3.eth.Contract(
             MyToken.abi,
@@ -108,10 +114,11 @@ connectWalletBtn.addEventListener("click", async () => {
     state.userAccount = state.accounts[0];
     console.log(state.userAccount);
     getContract();
+    buyTokens.textContent = `To buy tokens send ether to this address: ${state.tokenAddress}`;
     connectText.style.display = "none";
     funcContainer.style.display = "block";
 });
-userInput.addEventListener("change", handleInputChange);
+// userInput.addEventListener("change", handleInputChange);
 
 whitelistBtn.addEventListener("click", () => {
     state.kycAddress = userInput.value;
