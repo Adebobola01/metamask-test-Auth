@@ -81,7 +81,7 @@ const getContract = async () => {
     try {
         let web3 = new Web3(Web3.givenProvider);
 
-        state.networkId = 5777;
+        state.networkId = 5;
 
         state.tokenAddress = MyTokenSale.networks[state.networkId].address;
 
@@ -109,12 +109,27 @@ const getContract = async () => {
 window.addEventListener("DOMContentLoaded", () => {
     getMetamask(state);
 });
+
+const updateUserToken = async () => {
+    const userToken = await state.myTokenInstance.methods
+        .balanceOf(state.userAccount)
+        .call();
+    state.userToken = (await userToken) / 1000000000000000000;
+};
+
 connectWalletBtn.addEventListener("click", async () => {
     state.accounts = await connectWallet(state.accounts);
+    await getContract();
     state.userAccount = state.accounts[0];
-    console.log(state.userAccount);
-    getContract();
-    buyTokens.textContent = `To buy tokens send ether to this address: ${state.tokenAddress}`;
+    await updateUserToken();
+    console.log(state);
+    buyTokens.insertAdjacentHTML(
+        "beforeend",
+        `
+        <p>You currently have ${state.userToken} BOB Tokens</p>
+        <p>To buy tokens send ether to this address: ${state.tokenAddress}</p >
+    `
+    );
     connectText.style.display = "none";
     funcContainer.style.display = "block";
 });

@@ -20,6 +20,16 @@ module.exports = {
             },
             network_id: 5777,
         },
+        infura_goerli: {
+            provider: function () {
+                return new HDWalletProvider(
+                    process.env.MNEMONIC,
+                    "https://goerli.infura.io/v3/4aeec6b6ca0d4862a23b09736a624b59",
+                    AccountIndex
+                );
+            },
+            network_id: 5,
+        },
     },
     mocha: {},
     compilers: {
