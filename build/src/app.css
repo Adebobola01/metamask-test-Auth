@@ -1,11 +1,65 @@
+* {
+    box-sizing: border-box;
+}
 body {
+    margin: 0;
     background-color: rgb(48, 4, 48);
     color: red;
     font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.nav--bar {
+    padding: 0.4rem 0.2rem;
+    position: relative;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .container {
     height: 100%;
+}
+
+.form__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    height: 25rem;
+    width: 20rem;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__input {
+    outline: none;
+    width: 100%;
+    border: 1px solid transparent;
+    height: 2rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    height: 3rem;
+    font-size: 1.4rem;
+    color: aliceblue;
+}
+.form__row {
+    height: 100%;
+    width: 100%;
+}
+.form__btn {
+    outline: none;
+    border-radius: 1.5rem;
+    width: 10rem;
+    height: 3rem;
 }
 
 .connect--wallet__text {
@@ -19,13 +73,11 @@ body {
 
 .connect--button {
     border: none;
-    position: relative;
-    left: 0;
     border-radius: 24px;
     display: inline-block;
     color: white;
-    border-bottom: 2rem white;
+    border-bottom: 0.3rem solid white;
     background-color: aquamarine;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
     font-size: 2rem;
 }

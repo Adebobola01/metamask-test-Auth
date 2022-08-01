@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#09g8489" />
         <title>Tokenization</title>
         <script
             src="./node_modules/@metamask/detect-provider/dist/detect-provider.js"
@@ -15,7 +16,10 @@
         <link rel="stylesheet" href="./src/app.css" />
     </head>
     <body>
-        <button class="connect--button">Connect</button>
+        <nav class="nav--bar">
+            <img src="./src/images/BOB.svg" class="nav-logo" />
+            <button class="connect--button">Connect</button>
+        </nav>
         <div class="container">
             <p class="connect--wallet__text">
                 connect your wallet in other to use the App
@@ -26,6 +30,19 @@
                 <label for="kycAddress">Address:</label>
                 <input type="text" name="kycAddress" id="kycAddress" />
                 <button type="button" class="whitelist--btn">Whitelist</button>
+            </div>
+            <div class="form__container">
+                <form action="" class="form">
+                    <div class="form__row">
+                        <!-- <label for="" class="form__label">Address:</label> -->
+                        <input
+                            type="text"
+                            class="form__input"
+                            placeholder="Enter Address"
+                        />
+                    </div>
+                    <button class="form__btn">Whitelist</button>
+                </form>
             </div>
 
             <h2>buy Tokens</h2>
