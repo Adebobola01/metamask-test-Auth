@@ -3,12 +3,13 @@ import MyToken from "./contracts/MyToken.json" assert { type: "json" };
 import MyTokenSale from "./contracts/MyTokenSale.json" assert { type: "json" };
 import KycContract from "./contracts/KycContract.json" assert { type: "json" };
 
-const userInput = document.querySelector("#kycAddress");
-const whitelistBtn = document.querySelector(".whitelist--btn");
+const userInput = document.querySelector("form__input");
+// const whitelistBtn = document.querySelector(".whitelist--btn");
 const connectWalletBtn = document.querySelector(".connect--button");
-const funcContainer = document.querySelector(".function--container");
+// const funcContainer = document.querySelector(".function--container");
 const connectText = document.querySelector(".connect--wallet__text");
 const buyTokens = document.querySelector(".buy--tokens");
+const form = document.querySelector(".form");
 
 const state = {
     kycAddress: "0x123...",
@@ -54,7 +55,7 @@ const state = {
 
 // componentDidMount();
 
-userInput.value = state.kycAddress;
+// userInput.value = state.kycAddress;
 
 // const handleInputChange = (e) => {
 //     const target = e.target;
@@ -126,16 +127,21 @@ connectWalletBtn.addEventListener("click", async () => {
     buyTokens.insertAdjacentHTML(
         "beforeend",
         `
-        <p>You currently have ${state.userToken} BOB Tokens</p>
-        <p>To buy tokens send ether to this address: ${state.tokenAddress}</p >
+        <p>You currently have <span class="addr">${state.userToken} BOB </span> Tokens</p>
+        <p>To buy tokens send ether to this address: <span class="addr">${state.tokenAddress}</span></p >
     `
     );
     connectText.style.display = "none";
-    funcContainer.style.display = "block";
+    form.style.display = "flex";
 });
 // userInput.addEventListener("change", handleInputChange);
 
-whitelistBtn.addEventListener("click", () => {
+// whitelistBtn.addEventListener("click", () => {
+//     state.kycAddress = userInput.value;
+//     handleKycWhitelisting();
+// });
+
+form.addEventListener("submit", () => {
     state.kycAddress = userInput.value;
     handleKycWhitelisting();
 });

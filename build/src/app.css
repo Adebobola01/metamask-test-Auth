@@ -28,15 +28,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: hidden;
 }
 
 .form {
     height: 25rem;
     width: 20rem;
     background-color: transparent;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
+    display: none;
+    margin-top: 8rem;
 }
 
 .form__input {
@@ -57,9 +60,13 @@ body {
 }
 .form__btn {
     outline: none;
+    border: 1px solid transparent;
     border-radius: 1.5rem;
     width: 10rem;
     height: 3rem;
+    background: linear-gradient(to right, #db469f, #7891d5);
+    color: aliceblue;
+    font-size: 1.2rem;
 }
 
 .connect--wallet__text {
@@ -77,7 +84,13 @@ body {
     display: inline-block;
     color: white;
     border-bottom: 0.3rem solid white;
-    background-color: aquamarine;
+    background-color: #db469f;
+    background: linear-gradient(to right, #db469f, #7891d5);
+
     padding: 0.8rem 2rem;
     font-size: 2rem;
+}
+
+.addr {
+    color: #7891d5;
 }
