@@ -3,12 +3,65 @@
 }
 body {
     margin: 0;
-    background-color: rgb(48, 4, 48);
-    color: red;
+    background-color: rgb(22 21 34);
+    color: aliceblue;
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+}
+
+.backdrop {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.wallet__container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(22 21 34);
+    color: aliceblue;
+    height: 30rem;
+    width: 40rem;
+    z-index: 101;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: none;
+}
+
+.select-wallet {
+    margin-bottom: 1rem;
+}
+
+.wallet__btn {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border: 0px solid rgba(9, 147, 236, 0.5);
+    border-radius: 0.5rem;
+    border-width: 1px;
+    cursor: pointer;
+}
+.wallet__btn:hover {
+    border: 1px solid rgb(9 147 236);
+}
+
+.wallet__img {
+    height: 100%;
+}
+
+.metamask__login {
+    display: flex;
 }
 
 .nav--bar {
@@ -25,20 +78,22 @@ body {
 }
 
 .form__container {
-    display: flex;
     justify-content: center;
     align-items: center;
-    display: hidden;
+    display: none;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+.form__label {
+    margin-bottom: 1.5rem;
 }
 
 .form {
-    height: 25rem;
     width: 20rem;
     background-color: transparent;
-    /* display: flex; */
     flex-direction: column;
     align-items: center;
-    display: none;
+    display: flex;
     margin-top: 8rem;
 }
 
@@ -70,7 +125,6 @@ body {
 }
 
 .connect--wallet__text {
-    color: red;
     font-size: 2rem;
 }
 

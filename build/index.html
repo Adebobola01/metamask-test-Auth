@@ -16,6 +16,20 @@
         <link rel="stylesheet" href="./src/app.css" />
     </head>
     <body>
+        <div class="backdrop"></div>
+        <div class="wallet__container">
+            <div>
+                <span> Select Wallet </span>
+            </div>
+            <div class="wallet__btn">
+                <span class="wallet__name">Metamask</span>
+                <img
+                    src="./src/images/metamask-fox.svg"
+                    alt="metamask__logo"
+                    class="wallet__img"
+                />
+            </div>
+        </div>
         <nav class="nav--bar">
             <img src="./src/images/BOB.svg" class="nav-logo" />
             <button class="connect--button">Connect</button>
@@ -33,6 +47,7 @@
             </div>
             <div class="form__container">
                 <form class="form">
+                    <span class="form__label">Whitelist Address</span>
                     <div class="form__row">
                         <!-- <label for="" class="form__label">Address:</label> -->
                         <input

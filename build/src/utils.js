@@ -9,7 +9,6 @@ const getMetamask = async (state) => {
                 console.error("Multiple wallets found");
             state.provider = provider;
             console.log("metamask is available");
-            console.log(state.provider);
         } else {
             console.error("Metamask not installed");
         }
