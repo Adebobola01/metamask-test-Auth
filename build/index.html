@@ -18,7 +18,7 @@
     <body>
         <div class="backdrop"></div>
         <div class="wallet__container">
-            <div>
+            <div class="select-wallet">
                 <span> Select Wallet </span>
             </div>
             <div class="wallet__btn">
@@ -29,27 +29,22 @@
                     class="wallet__img"
                 />
             </div>
+            <div class="wallet__text--container">
+                <span class="wallet__text">other wallets coming soon...</span>
+            </div>
         </div>
         <nav class="nav--bar">
             <img src="./src/images/BOB.svg" class="nav-logo" />
             <button class="connect--button">Connect</button>
         </nav>
         <div class="container">
-            <p class="connect--wallet__text">
-                connect your wallet in other to use the App
-            </p>
-
-            <div class="function--container">
-                <h1>Bobola's blockchain</h1>
-                <label for="kycAddress">Address:</label>
-                <input type="text" name="kycAddress" id="kycAddress" />
-                <button type="button" class="whitelist--btn">Whitelist</button>
+            <div class="connect__wallet--text">
+                <p>connect your wallet in other to use the App</p>
             </div>
             <div class="form__container">
                 <form class="form">
                     <span class="form__label">Whitelist Address</span>
                     <div class="form__row">
-                        <!-- <label for="" class="form__label">Address:</label> -->
                         <input
                             type="text"
                             class="form__input"
@@ -61,7 +56,6 @@
             </div>
 
             <div class="buy--tokens"></div>
-            <h2>buy Tokens</h2>
         </div>
     </body>
 </html>

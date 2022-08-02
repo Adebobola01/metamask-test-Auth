@@ -5,7 +5,7 @@ import KycContract from "./contracts/KycContract.json" assert { type: "json" };
 
 const userInput = document.querySelector("form__input");
 const selectWalletBtn = document.querySelector(".connect--button");
-const connectText = document.querySelector(".connect--wallet__text");
+const connectText = document.querySelector(".connect__wallet--text");
 const buyTokens = document.querySelector(".buy--tokens");
 const form = document.querySelector(".form__container");
 const backdrop = document.querySelector(".backdrop");
@@ -71,7 +71,7 @@ const updateUserToken = async () => {
 
 selectWalletBtn.addEventListener("click", () => {
     backdrop.style.display = "block";
-    walletContainer.style.display = "block";
+    walletContainer.style.display = "flex";
 });
 
 const getWalletfunction = async () => {
@@ -89,6 +89,7 @@ connectWalletBtn.addEventListener("click", async () => {
     buyTokens.insertAdjacentHTML(
         "beforeend",
         `
+        <h2>buy Tokens</h2>
         <p>You currently have <span class="addr">${state.userToken} BOB </span> Tokens</p>
         <p>To buy tokens send ether to this address: <span class="addr">${state.tokenAddress}</span></p >
     `

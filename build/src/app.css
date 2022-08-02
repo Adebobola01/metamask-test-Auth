@@ -33,10 +33,16 @@ body {
     padding: 2rem;
     border-radius: 1rem;
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .select-wallet {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.wallet__text--container {
+    text-align: center;
 }
 
 .wallet__btn {
@@ -65,9 +71,9 @@ body {
 }
 
 .nav--bar {
-    padding: 0.4rem 0.2rem;
+    padding: 0.5rem 0.9rem;
     position: relative;
-    background-color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,6 +81,7 @@ body {
 
 .container {
     height: 100%;
+    padding: 2rem;
 }
 
 .form__container {
@@ -124,8 +131,9 @@ body {
     font-size: 1.2rem;
 }
 
-.connect--wallet__text {
+.connect__wallet--text {
     font-size: 2rem;
+    text-align: center;
 }
 
 .function--container {
@@ -137,7 +145,7 @@ body {
     border-radius: 24px;
     display: inline-block;
     color: white;
-    border-bottom: 0.3rem solid white;
+    border-bottom: 0.2rem solid white;
     background-color: #db469f;
     background: linear-gradient(to right, #db469f, #7891d5);
 
