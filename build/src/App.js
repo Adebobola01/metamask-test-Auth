@@ -82,10 +82,14 @@ const getWalletfunction = async () => {
 
 connectWalletBtn.addEventListener("click", async () => {
     await getWalletfunction();
-    console.log(state.myTokenInstance);
+
+    const userToken = await state.myTokenInstance.methods
+        .balanceOf(state.userAccount)
+        .call();
+    state.userToken = userToken / 1000000000000000000;
+
     backdrop.style.display = "none";
     walletContainer.style.display = "none";
-    console.log(state);
     buyTokens.insertAdjacentHTML(
         "beforeend",
         `

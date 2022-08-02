@@ -91,6 +91,11 @@ body {
     flex-direction: column;
     margin-bottom: 4rem;
 }
+
+.buy__token--form {
+    display: flex;
+}
+
 .form__label {
     margin-bottom: 1.5rem;
 }
@@ -116,6 +121,11 @@ body {
     font-size: 1.4rem;
     color: aliceblue;
 }
+
+.form__input:focus {
+    border: 1px solid rgb(9 147 236);
+}
+
 .form__row {
     height: 100%;
     width: 100%;
@@ -129,6 +139,8 @@ body {
     background: linear-gradient(to right, #db469f, #7891d5);
     color: aliceblue;
     font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 1rem;
 }
 
 .connect__wallet--text {
@@ -148,7 +160,7 @@ body {
     border-bottom: 0.2rem solid white;
     background-color: #db469f;
     background: linear-gradient(to right, #db469f, #7891d5);
-
+    cursor: pointer;
     padding: 0.8rem 2rem;
     font-size: 2rem;
 }
