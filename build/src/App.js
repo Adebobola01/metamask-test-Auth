@@ -83,17 +83,12 @@ const getWalletfunction = async () => {
 connectWalletBtn.addEventListener("click", async () => {
     await getWalletfunction();
 
-    const userToken = await state.myTokenInstance.methods
-        .balanceOf(state.userAccount)
-        .call();
-    state.userToken = userToken / 1000000000000000000;
-
+    updateUserToken();
     backdrop.style.display = "none";
     walletContainer.style.display = "none";
     buyTokens.insertAdjacentHTML(
         "beforeend",
         `
-        <h2>buy Tokens</h2>
         <p>You currently have <span class="addr">${state.userToken} BOB </span> Tokens</p>
         <p>To buy tokens send ether to this address: <span class="addr">${state.tokenAddress}</span></p >
     `
