@@ -83,7 +83,7 @@ const getWalletfunction = async () => {
 connectWalletBtn.addEventListener("click", async () => {
     await getWalletfunction();
 
-    updateUserToken();
+    await updateUserToken();
     backdrop.style.display = "none";
     walletContainer.style.display = "none";
     buyTokens.insertAdjacentHTML(
