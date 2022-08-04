@@ -70,8 +70,8 @@ const updateUserToken = async () => {
 };
 
 selectWalletBtn.addEventListener("click", () => {
-    backdrop.style.display = "block";
-    walletContainer.style.display = "flex";
+    backdrop.classList.remove("hidden");
+    walletContainer.classList.remove("hidden");
 });
 
 const getWalletfunction = async () => {
@@ -84,8 +84,8 @@ connectWalletBtn.addEventListener("click", async () => {
     await getWalletfunction();
 
     await updateUserToken();
-    backdrop.style.display = "none";
-    walletContainer.style.display = "none";
+    backdrop.classList.add("hidden");
+    walletContainer.classList.add("hidden");
     buyTokens.insertAdjacentHTML(
         "beforeend",
         `
@@ -93,13 +93,13 @@ connectWalletBtn.addEventListener("click", async () => {
         <p>To buy tokens send ether to this address: <span class="addr">${state.tokenAddress}</span></p >
     `
     );
-    connectText.style.display = "none";
-    form.style.display = "flex";
+    connectText.classList.add("hidden");
+    form.classList.remove("hidden");
 });
 
 backdrop.addEventListener("click", () => {
-    backdrop.style.display = "none";
-    walletContainer.style.display = "none";
+    backdrop.classList.add("hidden");
+    walletContainer.classList.add("hidden");
 });
 
 form.addEventListener("submit", () => {

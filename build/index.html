@@ -16,8 +16,8 @@
         <link rel="stylesheet" href="./src/app.css" />
     </head>
     <body>
-        <div class="backdrop"></div>
-        <div class="wallet__container">
+        <div class="backdrop hidden"></div>
+        <div class="wallet__container hidden">
             <div class="select-wallet">
                 <span> Select Wallet </span>
             </div>
@@ -35,7 +35,7 @@
         </div>
         <nav class="nav--bar">
             <img src="./src/images/BOB.svg" class="nav-logo" />
-            <button class="connect--button">Connect</button>
+            <button class="btn connect--button">Connect</button>
         </nav>
         <div class="container">
             <div class="connect__wallet--text">
@@ -43,7 +43,7 @@
                     connect your wallet in other to use the App
                 </p>
             </div>
-            <div class="form__container">
+            <div class="form__container hidden">
                 <form class="form">
                     <span class="form__label">Whitelist Address</span>
                     <div class="form__row">
@@ -53,12 +53,12 @@
                             placeholder="Enter Address to whitelist"
                         />
                     </div>
-                    <button class="form__btn">Whitelist</button>
+                    <button class="btn form__btn">Whitelist</button>
                 </form>
             </div>
 
             <div class="buy--tokens"></div>
-            <div class="form__container buy__token--form">
+            <div class="form__container buy__token--form hidden">
                 <form class="form">
                     <div class="form__row">
                         <input
