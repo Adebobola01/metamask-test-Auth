@@ -124,6 +124,7 @@ body {
     height: 3rem;
     font-size: 1.4rem;
     color: aliceblue;
+    margin-bottom: 1rem;
 }
 
 .form__input:focus {
@@ -140,14 +141,15 @@ body {
     color: aliceblue;
     cursor: pointer;
     border: none;
+    font-size: 1.2rem;
+    border-radius: 1.5rem;
 }
 
-.form__btn {
+.whitelist__form--btn {
     border: 1px solid transparent;
     border-radius: 1.5rem;
     width: 10rem;
     height: 3rem;
-    font-size: 1.2rem;
     margin-top: 1rem;
 }
 
@@ -157,6 +159,11 @@ body {
     border-bottom: 0.2rem solid white;
     padding: 0.8rem 2rem;
     font-size: 2rem;
+}
+
+.buy__tokens--btn {
+    width: 10rem;
+    height: 3rem;
 }
 
 .connect__wallet--text {

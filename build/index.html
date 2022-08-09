@@ -10,7 +10,11 @@
             src="./node_modules/@metamask/detect-provider/dist/detect-provider.js"
             type="text/javascript"
         ></script>
-        <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+        <script
+            src="./node_modules/web3.js-browser/build/web3.js"
+            type="text/javascript"
+        ></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script> -->
         <script src="./src/utils.js" type="text/javascript"></script>
         <script src="./src/App.js" type="module" defer></script>
         <link rel="stylesheet" href="./src/app.css" />
@@ -37,14 +41,14 @@
             <img src="./src/images/BOB.svg" class="nav-logo" />
             <button class="btn connect--button">Connect</button>
         </nav>
-        <div class="container">
-            <div class="connect__wallet--text">
-                <p class="connect__wallet--paragraph">
-                    connect your wallet in other to use the App
-                </p>
-            </div>
-            <div class="form__container hidden">
-                <form class="form">
+        <div class="connect__wallet--text">
+            <p class="connect__wallet--paragraph">
+                connect your wallet in other to use the App
+            </p>
+        </div>
+        <div class="container hidden">
+            <div class="form__container">
+                <form class="form whitelist__form">
                     <span class="form__label">Whitelist Address</span>
                     <div class="form__row">
                         <input
@@ -53,21 +57,28 @@
                             placeholder="Enter Address to whitelist"
                         />
                     </div>
-                    <button class="btn form__btn">Whitelist</button>
+                    <button class="btn whitelist__form--btn">Whitelist</button>
                 </form>
             </div>
-
             <div class="buy--tokens"></div>
-            <div class="form__container buy__token--form hidden">
-                <form class="form">
-                    <div class="form__row">
-                        <input
-                            type="number"
-                            class="form__input"
-                            placeholder="Enter Amount of tokens"
-                        />
-                    </div>
+            <div class="form__container">
+                <form class="form buy__token--form">
+                    <label for="token__amount">enter Token amount</label>
+                    <input
+                        type="text"
+                        class="form__input"
+                        placeholder="0.0 BOB"
+                        id="token__amount"
+                    />
+                    <input
+                        type="text"
+                        class="ether__amount form__input"
+                        placeholder="0 ETH"
+                        id="ether__amount"
+                    />
+                    <button type="submit" class="hidden"></button>
                 </form>
+                <button class="btn buy__tokens--btn">buy tokens</button>
             </div>
         </div>
     </body>

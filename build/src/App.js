@@ -2,15 +2,22 @@
 import MyToken from "./contracts/MyToken.json" assert { type: "json" };
 import MyTokenSale from "./contracts/MyTokenSale.json" assert { type: "json" };
 import KycContract from "./contracts/KycContract.json" assert { type: "json" };
+// import BN from "bn.js";
 
-const userInput = document.querySelector("form__input");
+const userInput = document.querySelector(".form__input");
+const appContainer = document.querySelector(".container");
 const selectWalletBtn = document.querySelector(".connect--button");
 const connectText = document.querySelector(".connect__wallet--text");
 const buyTokens = document.querySelector(".buy--tokens");
-const form = document.querySelector(".form__container");
+const whitelistForm = document.querySelector(".whitelist__form");
 const backdrop = document.querySelector(".backdrop");
 const walletContainer = document.querySelector(".wallet__container");
 const connectWalletBtn = document.querySelector(".wallet__btn");
+const buyTokenBtn = document.querySelector(".buy__tokens--btn");
+const etherUserInput = document.querySelector("#ether__amount");
+const tokenUserInput = document.querySelector("#token__amount");
+const buyTokenForm = document.querySelector(".buy__token--form");
+const whitelistContainer = document.querySelector(".form__container");
 
 const state = {
     kycAddress: "0x123...",
@@ -82,10 +89,11 @@ const getWalletfunction = async () => {
 
 connectWalletBtn.addEventListener("click", async () => {
     await getWalletfunction();
-
-    await updateUserToken();
+    // await updateUserToken();
     backdrop.classList.add("hidden");
+    appContainer.classList.remove("hidden");
     walletContainer.classList.add("hidden");
+    selectWalletBtn.classList.add("hidden");
     buyTokens.insertAdjacentHTML(
         "beforeend",
         `
@@ -94,7 +102,7 @@ connectWalletBtn.addEventListener("click", async () => {
     `
     );
     connectText.classList.add("hidden");
-    form.classList.remove("hidden");
+    whitelistContainer.classList.remove("hidden");
 });
 
 backdrop.addEventListener("click", () => {
@@ -102,7 +110,59 @@ backdrop.addEventListener("click", () => {
     walletContainer.classList.add("hidden");
 });
 
-form.addEventListener("submit", () => {
+whitelistForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
     state.kycAddress = userInput.value;
-    handleKycWhitelisting();
+    await handleKycWhitelisting();
+    userInput.value = "";
+});
+
+///////////////////////////
+///////////
+//BUY TOKENS
+///////////////////////////
+///////////
+
+let currentUserInput;
+
+const getValue = () => {
+    if (currentUserInput === "token") {
+        etherUserInput.value = "";
+        etherUserInput.value = (parseFloat(tokenUserInput.value) * 0.1).toFixed(
+            2
+        );
+    }
+    if (currentUserInput === "ether") {
+        tokenUserInput.value = "";
+        tokenUserInput.value = (parseInt(etherUserInput.value) / 0.1).toFixed(
+            2
+        );
+    }
+};
+
+// const txParams = {
+//     to: "0x3427bfe887eEc6E1C1e0F2b485800B5A9A7c633F",
+//     from: `${state.userAccount}`,
+//     value: `${state.etherAmount}`,
+//     chainId: "0x5",
+// };
+
+tokenUserInput.addEventListener("keydown", function () {
+    currentUserInput = "token";
+});
+etherUserInput.addEventListener("keydown", function () {
+    currentUserInput = "ether";
+});
+
+buyTokenForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log(state.etherAmount);
+    getValue();
+    console.log(currentUserInput);
+    state.etherAmount = parseFloat(etherUserInput.value).toString();
+    console.log(state.etherAmount, state.userAccount);
+});
+
+buyTokenBtn.addEventListener("click", () => {
+    sendTransaction(state.userAccount, state.etherAmount);
 });
